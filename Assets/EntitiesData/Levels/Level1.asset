@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c3e941bd2e6744ab1f1d75c5daebe2, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  Distance: 100
+  Waves:
+  - MeteorSpawners: 00000000
+    Count: -1
+    StartDelay: 0
+    Rate:
+      Min: 3
+      Max: 5
+    MeteorTypes:
+    - {fileID: 11400000, guid: 7a85fbda35d42b946ab6238b7f46f0d3, type: 2}

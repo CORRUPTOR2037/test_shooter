@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3393463423758714655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7492174472329257621}
+  - component: {fileID: -6583230891226107867}
+  m_Layer: 0
+  m_Name: EntitiesData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7492174472329257621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393463423758714655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6823504, y: -7.7558384, z: 46.2362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6583230891226107867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393463423758714655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71c2ae89c377f64eb910dded9e1efcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelConfigs:
+  - {fileID: 11400000, guid: c39c0695529f6b24d82e2418169eed2d, type: 2}
+  - {fileID: 11400000, guid: 1e5de4988c7ebdc4ab0114c0eae79ae1, type: 2}
+  - {fileID: 11400000, guid: 672b4c5aa9757cd4e80c4f2e7faad83d, type: 2}
+  SpaceshipBase: {fileID: 2431546936294240367, guid: e634ffabdaf66074aa720350f1c7876b,
+    type: 3}
+  SpaceshipGun: {fileID: 4780085565574641486, guid: a32bb22082663734f91337a7ada3d931,
+    type: 3}
+  SpaceshipEngine: {fileID: 8885996928912433539, guid: 3c54495887d22a24791312271e25faf7,
+    type: 3}
+  SpaceshipsModels:
+  - {fileID: 11400000, guid: 3379afa653bc74749be7c092e181bdaf, type: 2}
+  - {fileID: 11400000, guid: 09db32492d895ca47ba1f656fec1cd82, type: 2}
+  ProjectileModels:
+  - {fileID: 11400000, guid: 347303ad12088bb4cbc960c97f467806, type: 2}
+  - {fileID: 11400000, guid: 1e88946882260ba4493de0a06bd631c6, type: 2}
+  MeteorBase: {fileID: 7016182878578035866, guid: 97d773fca0c19a14089735c58a5bf26c,
+    type: 3}
+  MeteorModels:
+  - {fileID: 11400000, guid: 9906593c59d6ca74eaf6e21801863920, type: 2}
+  - {fileID: 11400000, guid: 7a85fbda35d42b946ab6238b7f46f0d3, type: 2}
+  - {fileID: 11400000, guid: 574d0f2277236754f8919da19d48b303, type: 2}
+  - {fileID: 11400000, guid: 315b53c485b3f9c43ab231429c8f708c, type: 2}

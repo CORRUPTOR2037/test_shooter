@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e9d864852f9d6488515f2bda18365d, type: 3}
+  m_Name: Laser
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: -467006765479547605, guid: 150eb2b490e24724c8cc417d8d55643e, type: 3}
+  Image: {fileID: 21300000, guid: 78f02d1cbc537d4488578b7b68f34f68, type: 3}
+  Speed: 15
+  Lifetime: 3
+  OnHitEffectPrefab: {fileID: 1910519137606815913, guid: 8b04c16bc6c7e00479ca08414464f7c4,
+    type: 3}
