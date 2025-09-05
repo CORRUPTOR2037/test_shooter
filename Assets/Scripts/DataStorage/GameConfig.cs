@@ -10,7 +10,8 @@ public class GameConfig {
 
     [NonSerialized]
     private static GameConfig _Current = null;
-    public static GameConfig Current {
+    public static GameConfig Current
+    {
         get {
             if (_Current == null) _Current = Load();
             return _Current;
@@ -22,10 +23,9 @@ public class GameConfig {
 
     [SerializeField]
     private int SpaceshipIndex = 0;
-    public SpaceshipModel Spaceship {
-        get {
-            return EntitiesData.Storage.SpaceshipsModels[SpaceshipIndex];
-        }
+    public SpaceshipModel Spaceship
+    {
+        get => EntitiesData.Storage.SpaceshipsModels[SpaceshipIndex];
         set {
             int index = EntitiesData.Storage.SpaceshipsModels.IndexOf(value);
             if (index < 0)
@@ -37,10 +37,9 @@ public class GameConfig {
 
     [SerializeField]
     private int ProjectilesIndex = 0;
-    public ProjectileModel Projectiles {
-        get {
-            return EntitiesData.Storage.ProjectileModels[ProjectilesIndex];
-        }
+    public ProjectileModel Projectiles
+    {
+        get => EntitiesData.Storage.ProjectileModels[ProjectilesIndex];
         set {
             int index = EntitiesData.Storage.ProjectileModels.IndexOf(value);
             if (index < 0)
@@ -50,17 +49,24 @@ public class GameConfig {
         }
     }
 
+    public ProjectileModel ProjectilesByIndex(int index)
+    {
+        return EntitiesData.Storage.ProjectileModels[index];
+    }
+
     [SerializeField]
     public int LastLevelCompleted = -1;
 
-    public void Save() {
+    public void Save()
+    {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
         bf.Serialize(file, _Current != null ? _Current : new GameConfig());
         file.Close();
     }
 
-    public static GameConfig Load() {
+    public static GameConfig Load()
+    {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file;
         try {
@@ -73,7 +79,8 @@ public class GameConfig {
         }
     }
 
-    public static void MarkLevelAsCompleted(LevelConfig level) {
+    public static void MarkLevelAsCompleted(LevelConfig level)
+    {
         if (level.Completed) return;
         Current.LastLevelCompleted = Mathf.Max(Current.LastLevelCompleted, level.Index);
         Current.Save();

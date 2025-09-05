@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Meteor", menuName = "MeteorModel")]
 public class MeteorModel : ScriptableObject
 {
-    public Sprite Image;
+    public Sprite[] Sprites;
 
     public Color Tint = Color.white;
 
@@ -16,5 +16,7 @@ public class MeteorModel : ScriptableObject
     public FloatRange Mass = new FloatRange(1, 1);
 
     public FloatRange Speed = new FloatRange(1, 1);
+
+    public Sprite RandomSprite => Sprites[Random.Range(0, Sprites.Length)];
 
 }

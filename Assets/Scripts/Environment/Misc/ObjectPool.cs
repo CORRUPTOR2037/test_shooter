@@ -18,6 +18,12 @@ public class ObjectPool<T> : List<T> where T : MonoBehaviour, IObjectPoolItem {
     private LinkedList<int> prefabsUsageOrder = new LinkedList<int>();
     private Transform parentContainer;
 
+    public Transform ParentContainer
+    {
+        get => parentContainer;
+        set => parentContainer = value;
+    }
+
     public bool FixedSize { get; set; }
 
     public int MaxCount { get; set; }
@@ -50,6 +56,7 @@ public class ObjectPool<T> : List<T> where T : MonoBehaviour, IObjectPoolItem {
 
         this.sourcePrefabCreator = sourcePrefabCreator;
     }
+    
 
     public void Preload() {
         Spawn();

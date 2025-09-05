@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
@@ -13,8 +13,9 @@ public class LevelController : MonoBehaviour, IModelBased<LevelConfig>
 
     protected LevelConfig Config;
 
-    protected SpawnManager spawner;
+    protected MeteorSpawnManager spawner;
     protected EndGameTrigger endGameTrigger;
+    public Transform ProjectilesContainer, EffectsContainer, MeteorsContainer;
 
     public SpaceshipController Spaceship { get; protected set; }
 
@@ -22,13 +23,15 @@ public class LevelController : MonoBehaviour, IModelBased<LevelConfig>
 
     public IEnumerable Meteors => spawner.Meteors;
 
-    public void SetupModel(LevelConfig model) {
+    public void SetupModel(LevelConfig model)
+    {
         this.Config = model;
         endGameTrigger.transform.position = new Vector3(0, Distance, 0);
     }
 
-    protected virtual void Awake() {
-        spawner = FindObjectOfType<SpawnManager>();
+    protected virtual void Awake()
+    {
+        spawner = FindObjectOfType<MeteorSpawnManager>();
         endGameTrigger = FindObjectOfType<EndGameTrigger>();
     }
 
@@ -66,12 +69,14 @@ public class LevelController : MonoBehaviour, IModelBased<LevelConfig>
         RestartGame();
     }
 
-    public void EndGame() {
+    public void EndGame()
+    {
         MessageBroker.Default.Publish<LevelMessage>(new LevelMessage(LevelMessage.MessageType.GameLose));
         Time.timeScale = 0;
     }
 
-    public void RestartGame() {
+    public void RestartGame()
+    {
         Spaceship.transform.position = spawner.PlayerSpawnPlace.NextPosition();
         Spaceship.transform.eulerAngles = Vector3.zero;
 
@@ -84,6 +89,7 @@ public class LevelController : MonoBehaviour, IModelBased<LevelConfig>
         }
 
         endGameTrigger.gameObject.SetActive(true);
+        endGameTrigger.transform.position = new Vector3(0, Distance, 0);
 
         Time.timeScale = 1;
     }

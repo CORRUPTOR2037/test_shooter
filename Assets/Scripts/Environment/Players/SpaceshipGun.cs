@@ -7,7 +7,8 @@ public class SpaceshipGun : MonoBehaviour
     private SpaceshipModel model;
     private ObjectPool<BaseProjectileController> projectiles;
 
-    public void Setup(SpaceshipModel model, ObjectPool<BaseProjectileController> projectilesPool) {
+    public void Setup(SpaceshipModel model, ObjectPool<BaseProjectileController> projectilesPool)
+    {
         this.model = model;
         this.projectiles = projectilesPool;
     }

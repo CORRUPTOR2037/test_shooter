@@ -6,11 +6,13 @@ class HomingProjectileController : SimpleProjectileController {
     [SerializeField]
     private float rotationSpeed;
 
-    private void Update() {
+    private void Update()
+    {
         MoveToNearestEnemy();
     }
 
-    private void MoveToNearestEnemy() {
+    private void MoveToNearestEnemy()
+    {
         float angle = float.MaxValue, dt;
         BaseMeteor nearest = null;
         foreach (BaseMeteor meteor in LevelController.Current.Meteors) {

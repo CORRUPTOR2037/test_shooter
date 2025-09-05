@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9744a7cc1e9c464a8a563f52d4c08a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e77dc94eb9df6948a57c67f60806009, type: 3}
   m_Name: Blue
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: f6d9e7337b90b9e4ba6d44379335a759, type: 3}
+  Image: {fileID: 21300000, guid: 0b01f85cdfa83bd42a285ae3be716a3f, type: 3}
   Speed: 120
   RotationSpeed: 220
   ShootRate: 0.5

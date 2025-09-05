@@ -30,7 +30,8 @@ public class SimpleProjectileController : BaseProjectileController
 
     public override void OnCreate(object options) { }
 
-    public override void SetupModel(ProjectileModel model) {
+    public override void SetupModel(ProjectileModel model)
+    {
         this.model = model;
 
         Renderer.sprite = model.Image;
@@ -46,24 +47,28 @@ public class SimpleProjectileController : BaseProjectileController
         OnHitEffect.gameObject.SetActive(false);
     }
 
-    public override void Launch(Vector2 position, Vector2 direction) {
+    public override void Launch(Vector2 position, Vector2 direction)
+    {
         transform.position = position;
         transform.up = direction;
 
         IsFreeToReuse = false;
         IsLaunched = true;
         gameObject.SetActive(true);
+        OnHitEffect.gameObject.SetActive(false);
 
         Rigidbody.velocity = direction.normalized * model.Speed;
 
         DeactivationTimer = Observable.Timer(System.TimeSpan.FromSeconds(model.Lifetime))
-            .Subscribe(_ => Deactivate());
+            .Subscribe(_ => Deactivate()).AddTo(this);
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
         Deactivate();
 
         OnHitEffect.gameObject.SetActive(true);
+        OnHitEffect.transform.parent = LevelController.Current.EffectsContainer;
         OnHitEffect.PlayAt(transform.position + transform.up * 0.2f);
 
         BaseMeteor meteorController = collision.gameObject.GetComponent<BaseMeteor>();
@@ -73,7 +78,8 @@ public class SimpleProjectileController : BaseProjectileController
     }
 
     protected void Deactivate() {
-        gameObject.SetActive(false);
+        if (gameObject != null)
+            gameObject.SetActive(false);
         IsLaunched = false;
         IsFreeToReuse = true;
         DeactivationTimer.Dispose();

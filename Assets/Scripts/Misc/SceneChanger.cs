@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Scene {
-    Game,
-    SelectLevel,
     MainMenu,
-    SetupShip
-
+    Game
 }
 public class SceneChanger : MonoBehaviour {
 

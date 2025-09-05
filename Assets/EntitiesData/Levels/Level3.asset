@@ -9,41 +9,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c3e941bd2e6744ab1f1d75c5daebe2, type: 3}
+  m_Script: {fileID: 11500000, guid: d3694e94352321f4fbaf90eb2c81318e, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
-  Distance: 454
+  Distance: 240
   Waves:
-  - MeteorSpawners: 02000000
-    Count: 150
-    StartDelay: 27
-    Rate:
-      Min: 3
-      Max: 5
-    MeteorTypes:
-    - {fileID: 11400000, guid: 574d0f2277236754f8919da19d48b303, type: 2}
-  - MeteorSpawners: 0100000002000000
-    Count: -1
-    StartDelay: 33
-    Rate:
-      Min: 3
-      Max: 5
-    MeteorTypes:
-    - {fileID: 11400000, guid: 574d0f2277236754f8919da19d48b303, type: 2}
-  - MeteorSpawners: 0100000002000000
-    Count: -1
-    StartDelay: 21
-    Rate:
-      Min: 3
-      Max: 5
-    MeteorTypes:
-    - {fileID: 11400000, guid: 574d0f2277236754f8919da19d48b303, type: 2}
-    - {fileID: 11400000, guid: 315b53c485b3f9c43ab231429c8f708c, type: 2}
   - MeteorSpawners: 000000000100000002000000
-    Count: 151
-    StartDelay: 45
+    Count: 79
+    StartDelay: 5
     Rate:
       Min: 3
       Max: 5
     MeteorTypes:
-    - {fileID: 11400000, guid: 7a85fbda35d42b946ab6238b7f46f0d3, type: 2}
+    - {fileID: 11400000, guid: 97ab7c8c61fd4b4418b51b80630a79a3, type: 2}
+    - {fileID: 11400000, guid: 24a4cf6c2ef21964bb49c7fa536b63f3, type: 2}
+    - {fileID: 11400000, guid: a345a6acc06ca6a4cb0882dc811e9668, type: 2}
+    - {fileID: 11400000, guid: d27f055f75c8b384fac7b97379f2a42e, type: 2}
+  - MeteorSpawners: 01000000
+    Count: -1
+    StartDelay: 17
+    Rate:
+      Min: 3
+      Max: 5
+    MeteorTypes:
+    - {fileID: 11400000, guid: 24a4cf6c2ef21964bb49c7fa536b63f3, type: 2}
+  - MeteorSpawners: 02000000
+    Count: -1
+    StartDelay: 25
+    Rate:
+      Min: 3
+      Max: 5
+    MeteorTypes:
+    - {fileID: 11400000, guid: 24a4cf6c2ef21964bb49c7fa536b63f3, type: 2}
+  - MeteorSpawners: 02000000
+    Count: -1
+    StartDelay: 11
+    Rate:
+      Min: 3
+      Max: 5
+    MeteorTypes:
+    - {fileID: 11400000, guid: d27f055f75c8b384fac7b97379f2a42e, type: 2}

@@ -5,51 +5,77 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndGameScreen : MonoBehaviour {
+public class EndGameScreen : MonoBehaviour
+{
 
-    [SerializeField]
-    private Text text;
+    [SerializeField] private Text text;
+    [SerializeField] private Button restartButton, returnButton;
+    [SerializeField] private Transform screen;
 
-    [SerializeField]
-    private Button restartButton;
+    bool gameEnded = false;
 
-    [SerializeField]
-    private Button returnButton;
-
-    private void Start() {
+    private void Start()
+    {
         MessageBroker.Default.Receive<LevelMessage>()
-            .Subscribe(msg => ReactOnGameEvent(msg.Type));
+            .Subscribe(msg => ReactOnGameEvent(msg.Type)).AddTo(this);
 
-        restartButton.onClick.AddListener(() => {
-            gameObject.SetActive(false);
+        Observable.EveryUpdate()
+            .Where(_ => Input.GetKeyDown(KeyCode.Escape))
+            .Subscribe(_ => Pause()).AddTo(this);
+
+
+        restartButton.onClick.AddListener(() =>
+        {
+            screen.gameObject.SetActive(false);
             MessageBroker.Default.Publish<LevelMessage>(new LevelMessage(LevelMessage.MessageType.CallToRestart));
         });
 
-        returnButton.onClick.AddListener(() => {
-            SceneChanger.OpenScene(Scene.SelectLevel);
+        returnButton.onClick.AddListener(() =>
+        {
+            SceneChanger.OpenScene(Scene.MainMenu);
         });
 
-        gameObject.SetActive(false);
+        screen.gameObject.SetActive(false);
     }
 
-    private void ReactOnGameEvent(LevelMessage.MessageType type) {
-        switch (type) {
-            case LevelMessage.MessageType.GameLose: {
-                gameObject.SetActive(true);
-                restartButton.gameObject.SetActive(true);
-                returnButton.gameObject.SetActive(true);
+    private void ReactOnGameEvent(LevelMessage.MessageType type)
+    {
+        switch (type)
+        {
+            case LevelMessage.MessageType.GameLose:
+                {
+                    gameEnded = true;
+                    screen.gameObject.SetActive(true);
+                    restartButton.gameObject.SetActive(true);
+                    returnButton.gameObject.SetActive(true);
 
-                text.text = "You lost.";
-            } break;
+                    text.text = "You lost.";
+                }
+                break;
 
-            case LevelMessage.MessageType.GameWin: {
-                gameObject.SetActive(true);
-                restartButton.gameObject.SetActive(false);
-                returnButton.gameObject.SetActive(true);
+            case LevelMessage.MessageType.GameWin:
+                {
+                    gameEnded = true;
+                    screen.gameObject.SetActive(true);
+                    restartButton.gameObject.SetActive(false);
+                    returnButton.gameObject.SetActive(true);
 
-                text.text = "You won!";
-            }
-            break;
+                    text.text = "You won!";
+                }
+                break;
         }
     }
+
+    private void Pause()
+    {
+        if (gameEnded) return;
+
+        screen.gameObject.SetActive(!screen.gameObject.activeSelf);
+        restartButton.gameObject.SetActive(true);
+        returnButton.gameObject.SetActive(true);
+
+        text.text = "Pause";
+    }
+    
+
 }

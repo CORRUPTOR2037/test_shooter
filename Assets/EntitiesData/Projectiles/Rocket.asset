@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e9d864852f9d6488515f2bda18365d, type: 3}
+  m_Script: {fileID: 11500000, guid: bc09d4be216c69445ac0860afd0c50df, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2401930212341485817, guid: 85b54e9fc046ba04ea3eb5d599a20c8e, type: 3}
-  Image: {fileID: 21300000, guid: 7a70b8961e6f28544a3a00345f91cc25, type: 3}
+  Prefab: {fileID: -467006765479547605, guid: 5f27fc6be99a8b54993c82955a68eec7, type: 3}
+  Image: {fileID: 21300000, guid: 2adf79f22dcbb184eae9f1764abbd92c, type: 3}
   Speed: 3
   Damage:
     Min: 1
     Max: 1
   Lifetime: 10
-  OnHitEffectPrefab: {fileID: 3469414644032797193, guid: 76fde5d9cccfc28449e6459ed9d3d234,
+  OnHitEffectPrefab: {fileID: 3469414644032797193, guid: 0670ff4f469627741ba3277e183e44ef,
     type: 3}

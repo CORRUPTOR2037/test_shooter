@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e9d864852f9d6488515f2bda18365d, type: 3}
+  m_Script: {fileID: 11500000, guid: bc09d4be216c69445ac0860afd0c50df, type: 3}
   m_Name: Laser
   m_EditorClassIdentifier: 
-  Prefab: {fileID: -467006765479547605, guid: 150eb2b490e24724c8cc417d8d55643e, type: 3}
-  Image: {fileID: 21300000, guid: 78f02d1cbc537d4488578b7b68f34f68, type: 3}
+  Prefab: {fileID: -467006765479547605, guid: 5f27fc6be99a8b54993c82955a68eec7, type: 3}
+  Image: {fileID: 21300000, guid: 6d03b005b648dc5488be066d6da74fe0, type: 3}
   Speed: 15
+  Damage:
+    Min: 1
+    Max: 1
   Lifetime: 3
-  OnHitEffectPrefab: {fileID: 1910519137606815913, guid: 8b04c16bc6c7e00479ca08414464f7c4,
+  OnHitEffectPrefab: {fileID: 1910519137606815913, guid: c344f7c8dc9d8d949b6dfb0d79456689,
     type: 3}

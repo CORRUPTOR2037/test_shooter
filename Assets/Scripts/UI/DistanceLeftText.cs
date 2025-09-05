@@ -14,7 +14,10 @@ public class DistanceLeftText : MonoBehaviour
         text = GetComponent<Text>();
 
         Observable.EveryUpdate()
-            .Subscribe(_ => text.text = "Distance to end left: \n" + (LevelController.Current.Distance - LevelController.Current.Spaceship.transform.position.y))
+            .Subscribe(_ => text.text = string.Format(
+                "Distance to end left: \n{0:0.0}",
+                LevelController.Current.Distance - LevelController.Current.Spaceship.transform.position.y
+            ))
             .AddTo(this);
     }
 }

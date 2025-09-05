@@ -40,29 +40,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393463423758714655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71c2ae89c377f64eb910dded9e1efcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 090a3be5f18f3fa488ab2794728eaae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LevelConfigs:
-  - {fileID: 11400000, guid: c39c0695529f6b24d82e2418169eed2d, type: 2}
-  - {fileID: 11400000, guid: 1e5de4988c7ebdc4ab0114c0eae79ae1, type: 2}
-  - {fileID: 11400000, guid: 672b4c5aa9757cd4e80c4f2e7faad83d, type: 2}
-  SpaceshipBase: {fileID: 2431546936294240367, guid: e634ffabdaf66074aa720350f1c7876b,
+  - {fileID: 11400000, guid: 96d660c22365e9841b1451936a0de760, type: 2}
+  - {fileID: 11400000, guid: e5d948a594f7cc94c93290acf86992f1, type: 2}
+  - {fileID: 11400000, guid: 7c25e8b391d9ee04e8e3037dd67080ca, type: 2}
+  SpaceshipBase: {fileID: 2431546936294240367, guid: 0dab7ee338d6fd44fb9dba9552fe1882,
     type: 3}
-  SpaceshipGun: {fileID: 4780085565574641486, guid: a32bb22082663734f91337a7ada3d931,
+  SpaceshipGun: {fileID: 4780085565574641486, guid: 81c0675b12ad7674bbf292b4dda4be26,
     type: 3}
-  SpaceshipEngine: {fileID: 8885996928912433539, guid: 3c54495887d22a24791312271e25faf7,
+  SpaceshipEngine: {fileID: 8885996928912433539, guid: f0b00116dc9033841ba3d225e58f0fcb,
     type: 3}
   SpaceshipsModels:
-  - {fileID: 11400000, guid: 3379afa653bc74749be7c092e181bdaf, type: 2}
-  - {fileID: 11400000, guid: 09db32492d895ca47ba1f656fec1cd82, type: 2}
+  - {fileID: 11400000, guid: 7a617543a24c45f4d87fe879cacde12b, type: 2}
+  - {fileID: 11400000, guid: 184d3037b7a775d41a647d3cf704399a, type: 2}
   ProjectileModels:
-  - {fileID: 11400000, guid: 347303ad12088bb4cbc960c97f467806, type: 2}
-  - {fileID: 11400000, guid: 1e88946882260ba4493de0a06bd631c6, type: 2}
-  MeteorBase: {fileID: 7016182878578035866, guid: 97d773fca0c19a14089735c58a5bf26c,
+  - {fileID: 11400000, guid: 7af2b1ffd7c0c6b4a8dbe85303dae62c, type: 2}
+  - {fileID: 11400000, guid: 7a19fbcc036421d4b8e0097618e15c03, type: 2}
+  MeteorBase: {fileID: 7016182878578035866, guid: 246df7254c0351b459e51e86dd9c1b20,
     type: 3}
   MeteorModels:
-  - {fileID: 11400000, guid: 9906593c59d6ca74eaf6e21801863920, type: 2}
-  - {fileID: 11400000, guid: 7a85fbda35d42b946ab6238b7f46f0d3, type: 2}
-  - {fileID: 11400000, guid: 574d0f2277236754f8919da19d48b303, type: 2}
-  - {fileID: 11400000, guid: 315b53c485b3f9c43ab231429c8f708c, type: 2}
+  - {fileID: 11400000, guid: 97ab7c8c61fd4b4418b51b80630a79a3, type: 2}
+  - {fileID: 11400000, guid: 24a4cf6c2ef21964bb49c7fa536b63f3, type: 2}
+  - {fileID: 11400000, guid: a345a6acc06ca6a4cb0882dc811e9668, type: 2}
+  - {fileID: 11400000, guid: d27f055f75c8b384fac7b97379f2a42e, type: 2}

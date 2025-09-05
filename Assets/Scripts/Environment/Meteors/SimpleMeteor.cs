@@ -33,7 +33,7 @@ public class SimpleMeteor : BaseMeteor
     public override void SetupModel(MeteorModel model) {
         base.SetupModel(model);
 
-        Renderer.sprite = model.Image;
+        Renderer.sprite = model.RandomSprite;
         Renderer.color = model.Tint;
 
         // Reset collider to sync it with new sprite
@@ -45,7 +45,8 @@ public class SimpleMeteor : BaseMeteor
         Rigidbody.mass = model.Mass.RandomValue;
     }
 
-    public override void Launch(Vector2 position, Vector2 direction) {
+    public override void Launch(Vector2 position, Vector2 direction)
+    {
         gameObject.SetActive(true);
 
         transform.position = position;
@@ -53,6 +54,9 @@ public class SimpleMeteor : BaseMeteor
         Rigidbody.velocity = direction.normalized * model.Speed.RandomValue;
 
         Health = MaxHealth;
+        var effect = GetComponentInChildren<BaseVisualEffect>();
+        if (effect != null)
+            effect.gameObject.SetActive(false);
     }
 
     public override void Hit(float damage) {

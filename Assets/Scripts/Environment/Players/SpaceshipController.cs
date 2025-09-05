@@ -53,7 +53,11 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
 
         Observable.EveryUpdate()
             .Where(_ => Input.anyKey && CurrentState.CanMove)
-            .Subscribe(_ => Move()).AddTo(this);
+            .Subscribe(_ =>
+            {
+                Move();
+                CheckProjectilesChange();
+            }).AddTo(this);
 
         Observable.EveryUpdate()
             .Subscribe(_ => UpdateEngines()).AddTo(this);
@@ -64,7 +68,8 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
     }
 
 
-    public void SetupModel(SpaceshipModel model) {
+    public void SetupModel(SpaceshipModel model)
+    {
         this.Model = model;
 
         Rigidbody.drag = model.LinearDrag;
@@ -83,8 +88,6 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
             i++;
         }
 
-        Projectiles = new ObjectPool<BaseProjectileController>(() => ProjectileFactory.CreateProjectile(GameConfig.Current.Projectiles));
-        
         if (Guns != null) foreach (var gun in Guns) Destroy(gun.gameObject);
         Guns = new SpaceshipGun[Model.GunPoints.Length];
 
@@ -99,6 +102,8 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
             i++;
         }
 
+        SetProjectilesOnGun(GameConfig.Current.Projectiles);
+
         if (Collider != null) Destroy(Collider);
         Collider = gameObject.AddComponent<PolygonCollider2D>();
 
@@ -107,16 +112,26 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
         Reset();
     }
 
-    public void Reset() {
+    public void Reset()
+    {
         _Health.Value = Model.HealthPoints;
         Rigidbody.velocity = Vector3.zero;
         Rigidbody.angularVelocity = 0;
 
         CurrentState = new DefaultSpaceshipControllerState();
-
     }
 
-    private void Move() {
+    private void SetProjectilesOnGun(ProjectileModel projectiles)
+    {
+        Projectiles = new ObjectPool<BaseProjectileController>(
+            () => ProjectileFactory.CreateProjectile(projectiles),
+            container: LevelController.Current.ProjectilesContainer);
+        for (int i = 0; i < Guns.Length; i++)
+            Guns[i].Setup(Model, Projectiles);
+    }
+
+    private void Move()
+    {
         Vector2 direction = new Vector2(
             Input.GetAxis("Horizontal"),
             Input.GetAxis("Vertical")
@@ -134,7 +149,16 @@ public class SpaceshipController : MonoBehaviour, IModelBased<SpaceshipModel>, I
         transform.localEulerAngles = new Vector3(0, 0, Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, Time.deltaTime * Model.RotationSpeed));
     }
 
-    private void UpdateEngines() {
+    private void CheckProjectilesChange()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            SetProjectilesOnGun(GameConfig.Current.ProjectilesByIndex(0));
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SetProjectilesOnGun(GameConfig.Current.ProjectilesByIndex(1));
+    }
+
+    private void UpdateEngines()
+    {
         foreach (var engine in Engines) engine.SetForce(Rigidbody.velocity.magnitude);
     }
 
